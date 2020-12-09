@@ -15,7 +15,10 @@
 
 <script>
 import { geekexpoMapper } from "@/store/events/geekexpo2020/form"
+import unloadMixin from "@/service/beforeunload/beforeunloadMixin"
+
 export default {
+  mixins: [unloadMixin],
   data() {
     return {
       form: {},

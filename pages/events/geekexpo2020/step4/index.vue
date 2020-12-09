@@ -23,7 +23,10 @@
   </EventPagesBody>
 </template>
 <script>
+import unloadMixin from "@/service/beforeunload/beforeunloadMixin"
+
 export default {
+  mixins: [unloadMixin],
   data() {
     return {
       componentData: null,

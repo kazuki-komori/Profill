@@ -16,8 +16,10 @@
 </template>
 
 <script>
+import unloadMixin from "@/service/beforeunload/beforeunloadMixin"
 import { formMapper } from "@/store/form"
 export default {
+  mixins: [unloadMixin],
   data() {
     return {
       form: null,

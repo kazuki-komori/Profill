@@ -26,15 +26,15 @@
 import { formMapper } from "@/store/form"
 import ButtonPreview from "@/components/button/ButtonPreview"
 import ButtonLink from "@/components/button/ButtonLink"
+import unloadMixin from "@/service/beforeunload/beforeunloadMixin"
+
 export default {
   components: { ButtonLink, ButtonPreview },
+  mixins: [unloadMixin],
   data() {
     return {
       form: null,
     }
-  },
-  mounted() {
-    this.form = { ...this.step1 }
   },
   computed: {
     ...formMapper.mapState(["step1"]),
@@ -45,6 +45,10 @@ export default {
       return this.$route.params.type
     },
   },
+  mounted() {
+    this.form = { ...this.step1 }
+  },
+
   methods: {
     ...formMapper.mapMutations(["SET_PROFILE"]),
     inputForm() {
