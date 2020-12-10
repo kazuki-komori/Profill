@@ -6,11 +6,7 @@
           <template v-if="step.isBar">
             <div
               class="absolute flex align-center items-center align-middle content-center"
-              style="
-                width: calc(100% - 2.5rem - 1rem);
-                top: 50%;
-                transform: translate(-50%, -50%);
-              "
+              :style="barClass"
             >
               <div
                 class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1"
@@ -83,6 +79,13 @@ export default {
       const targetRoute = this.$route.name
       const targetStep = targetRoute.split("-")[2]
       return this.steps.find((value) => value.state === targetStep)
+    },
+    barClass() {
+      return {
+        width: "calc(100% - 2.5rem - 1rem)",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+      }
     },
   },
   methods: {
